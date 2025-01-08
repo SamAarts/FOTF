@@ -1,0 +1,21 @@
+function bestand = GezichtherkenningFoto(upload)
+
+    bestand       = imread('Selfie_kamer.jpg');
+    [w, h]     = size(bestand);
+    
+    if w>320
+       bestand    = imresize(bestand,[320 NaN]);
+    end
+    
+    % Create a cascade detector object.
+    faceDetector = vision.CascadeObjectDetector();
+    
+    %finding the bounding box that encloses the face on video frame
+    face_Location = step(faceDetector, bestand);
+    
+    % Draw the returned bounding box around the detected face.
+    bestand = insertShape(bestand, 'Rectangle', face_Location);
+    figure; 
+    imshow(bestand); 
+    title('Detected face');
+end
