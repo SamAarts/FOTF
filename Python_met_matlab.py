@@ -26,15 +26,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",       
 )
 
-st.markdown(
-    f"""
-    <video width="1280" height="720" controls>
-        <source src="{output_file_path}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    """,
-    unsafe_allow_html=True
-)
+
 
 def verberg_suffe_icoontjes():
             st.markdown("""
